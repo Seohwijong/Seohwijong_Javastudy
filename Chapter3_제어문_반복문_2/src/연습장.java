@@ -9,7 +9,7 @@ public class 연습장 {
 		int e1=(a%100)/10;
 		int r1=a%10;
 		int num=0;
-			while(q1!=w1 && w1!=e1&&e1!=r1&&q1!=e1&&q1!=r1&&w1!=r1)
+			while(q1!=w1 && w1!=e1&&e1!=r1&&q1!=e1&&q1!=r1&&w1!=r1&&q1!=0)
 			{
 				System.out.println("4자리수:");
 				int b=scan.nextInt();
@@ -24,7 +24,7 @@ public class 연습장 {
 				num++;
 				if(b==0)
 					{
-					System.out.println("종료\t"+"숫자:"+a);
+					System.out.println("종료\t"+"숫자:"+q1+w1+e1+r1);
 					break;
 					}
 				if(q1==q2)
@@ -37,7 +37,7 @@ public class 연습장 {
 					w3="b";
 				if(e1==e2)
 					e3="s";
-				else if(e2==q1 || e2==w1 || q2==r1)
+				else if(e2==q1 || e2==w1 || e2==r1)
 					e3="b";
 				if(r1==r2)
 					r3="s";
@@ -45,7 +45,7 @@ public class 연습장 {
 					r3="b";
 				if(a==b)
 				{
-					System.out.println("정답!"+a+"횟수:"+num);
+					System.out.println("정답!"+q1+w1+e1+r1+"횟수:"+num);
 					break;
 				}	
 				String cs=q3+w3+e3+r3;
