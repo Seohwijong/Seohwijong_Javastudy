@@ -23,26 +23,26 @@ class SutdaCard //1
 	
 	
 }
-class Student //2
-{
-	String name;
-	int ban;
-	int no;
-	int kor;
-	int eng;
-	int math;
-}
-class PlayingCard //3 
-{ 
-	int kind; //인스
-	int num; //인스
-	static int width; //공유 
-	static int height; //공유
-	PlayingCard(int k, int n) { 
-	kind = k; //지역
-	num = n; //지역
-	}
-}
+//class Student //2
+//{
+//	String name;
+//	int ban;
+//	int no;
+//	int kor;
+//	int eng;
+//	int math;
+//}
+//class PlayingCard //3 
+//{ 
+//	int kind; //인스
+//	int num; //인스
+//	static int width; //공유 
+//	static int height; //공유
+//	PlayingCard(int k, int n) { 
+//	kind = k; //지역
+//	num = n; //지역
+//	}
+//}
 /*
  *   인스턴스 변수 : 데이터를 각각 저장시에 사용
  *   정적변수(공유변수) : 공통으로 사용되는 변수 => 메모리가 1개만 생성
