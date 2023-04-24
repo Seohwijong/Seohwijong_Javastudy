@@ -3,9 +3,9 @@ public class 문제 {
 	
 	public static void main(String[] args) {
 		/*
-		 *    1. 1
-		 *    2. 1
-		 *    3. 1
+		 *   o 1. 1 
+		 *   o 2. 1 
+		 *   o 3. 1 
 		 *    4. 2
 		 *    5. 기본생성자가 없어서
 		 *    6. 2
@@ -27,7 +27,10 @@ public class 문제 {
 		 *    14. 2번째 줄
 		 *    15. d
 		 *    16. implements
-		 *    17. 
+		 *    17. extends -> implements / Printable -> 할당불가 / void print() -> public void print()
+		 *    18. ? 오버로딩 / 오버라이딩
+		 *    19.
+		 *    
 		 *    
 		 */
 	}
