@@ -71,6 +71,7 @@ public class 제어문_정리 {
 //				System.out.println(d);
 //			}
 //		}
+//		ISO-8859-1
 		
 	}
 }

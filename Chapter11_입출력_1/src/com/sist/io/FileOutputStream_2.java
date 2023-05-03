@@ -8,6 +8,7 @@ public class FileOutputStream_2 {
 		try
 		{	
 			//파일 지정
+			
 			File file=new File("c:\\java_datas\\school.txt");
 			// 파일 존재여부를 확인
 			if(!file.exists())
