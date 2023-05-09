@@ -1,24 +1,31 @@
+import java.io.FileReader;
 import java.util.*;
 
 public class 연습장 {
 
 	public static void main(String[] args) {
-		String s="HelloJava";
-		char[] c=new char[s.length()];
-		for(int i=0;i<s.length();i++)
+		ArrayList list=new ArrayList();
+		try
 		{
-			c[i]=s.charAt(i);
-		}
-		for(int i=0;i<c.length;i++)
-		{
-			if(c[i]<'Z' && c[i]>'A')
+			FileReader fr = new FileReader("C:\\java_datas\\travel1.txt");
+			int i=0;
+			StringBuffer sb=new StringBuffer();
+			while((i=fr.read())!=-1)
 			{
-				c[i]+=32;
+				sb.append((char)i);
 			}
-			else
-				c[i]-=32;
+			fr.close();
+			String[] movies=sb.toString().split("\n");
+			for(String m:movies)
+			{
+				list.add(m);
+			}
 		}
-		for(char a:c)
-		System.out.print(a);
+		catch(Exception ex) {}
+		
+			for(Object ar:list)
+			{
+				System.out.println(ar);
+			}
 	}
 }

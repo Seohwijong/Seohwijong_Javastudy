@@ -10,16 +10,17 @@ import java.util.List;
 
 
 import com.sist.common.ImageChange;
+import com.sist.inter.FindInterface;
 import com.sist.manager.*;
 import com.sist.manager.TravelSystem;
 import java.awt.event.*;
-public class FindPanel extends JPanel implements ActionListener{
+public class FindPanel extends JPanel implements ActionListener,FindInterface{
 	JTextField tf;
 	JButton b1;
 	JButton b2,b3,b4,b5,b6,b7,b8;
 	JTable table;
 	DefaultTableModel model;
-	TravelSystem ms=new TravelSystem();
+	TravelSystem ts=new TravelSystem();
 	public FindPanel()
 	{
 		//초기화
@@ -78,7 +79,7 @@ public class FindPanel extends JPanel implements ActionListener{
 		add(js);
 		try
 		{
-			List<TravelVO> list=ms.TravelCastegoryData(1);
+			List<TravelVO> list=ts.TravelCastegoryData(1);
 			for(TravelVO vo:list)
 			{
 				URL url=new URL(vo.getPoster());
@@ -158,9 +159,10 @@ public class FindPanel extends JPanel implements ActionListener{
 		
 		try
 		{
-			List<TravelVO> list=ms.TravelCastegoryData(cno);
+			List<TravelVO> list=ts.TravelCastegoryData(cno);
 			for(TravelVO vo:list)
 			{
+				
 //				URL url=new URL("http:"+vo.getPoster());
 				
 				URL url=new URL(vo.getPoster());
@@ -177,7 +179,6 @@ public class FindPanel extends JPanel implements ActionListener{
 				};
 				model.addRow(data);
 			}
-			
 		}
 		catch(Exception ex) {}
 	}
@@ -190,7 +191,7 @@ public class FindPanel extends JPanel implements ActionListener{
 		
 		try
 		{
-			List<TravelVO> list=ms.TravelFindData(title);
+			List<TravelVO> list=ts.TravelFindData(title);
 			for(TravelVO vo:list)
 			{
 				URL url=new URL(vo.getPoster());

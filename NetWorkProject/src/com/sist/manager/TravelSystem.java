@@ -35,7 +35,6 @@ public class TravelSystem {
 			list=(List<TravelVO>)ois.readObject();
 
 		}catch(Exception ex)
-
 		{
 
 			ex.printStackTrace();
@@ -59,6 +58,28 @@ public class TravelSystem {
 		}
 
 	}
+	//데이터 20개씩 나눠서 전송
+	public List<TravelVO> TravelListData(int page)
+	{
+		List<TravelVO> gList=
+				new ArrayList<TravelVO>();
+		int j=0;
+		int rowSize=18;
+		int start=(page-1)*rowSize;
+		for(int i=0;i<list.size();i++)
+		{
+			if(j<rowSize && i>=start)
+			{
+				gList.add(list.get(i));
+				j++;
+			}
+		}
+		return gList;
+	}
+	public int TravelTotalPage() 
+	{
+		return (int)(Math.ceil(list.size()/18.0));
+	}
 	public List<TravelVO> TravelCastegoryData(int cno)
 	{
 		List<TravelVO> mList=new ArrayList<TravelVO>();
@@ -67,6 +88,7 @@ public class TravelSystem {
 			if(vo.getCno()==cno)
 			{
 				mList.add(vo);
+				
 			}
 		}
 		return mList;
@@ -81,7 +103,20 @@ public class TravelSystem {
 				mList.add(vo);
 			}
 		}
-		return list;
+		return mList;
+	}
+	public TravelVO travelDetailData(String title)
+	{
+		TravelVO vo=new TravelVO();
+		for(TravelVO tvo:list)
+		{
+			if(tvo.getTitle().equals(title))
+			{
+				vo=tvo;
+				break;
+			}
+		}
+		return vo;
 	}
 	public void TCastegoryData(int cno)
 
@@ -119,7 +154,7 @@ public class TravelSystem {
 
 			String cno=in.readLine();
 
-			ts.TCastegoryData(Integer.parseInt(cno));
+			ts.TravelCastegoryData(Integer.parseInt(cno));
 
 		}catch(Exception ex) {}
 

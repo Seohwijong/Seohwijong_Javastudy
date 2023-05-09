@@ -14,7 +14,9 @@ import javax.swing.text.Document;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 
-public class ChatPanel extends JPanel {
+import com.sist.inter.ChatInterface;
+
+public class ChatPanel extends JPanel implements ChatInterface{
 	JTextPane pane;
 	JTextField tf;
 	JButton b1, b2;
@@ -43,7 +45,16 @@ public class ChatPanel extends JPanel {
 		// 테이블
 		String[] col= {"아이디","이름","성별"};
 		String[][] row=new String[0][3];
-		model=new DefaultTableModel(row,col);
+		model=new DefaultTableModel(row,col)
+		{
+			//익명의 클래스 => 상속없이 오버라이딩
+			@Override 
+			public boolean isCellEditable(int row, int column) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+				
+		};
 		table=new JTable(model);
 		JScrollPane js2=new JScrollPane(table);
 		b1=new JButton("쪽지보내기");
@@ -54,18 +65,17 @@ public class ChatPanel extends JPanel {
 		
 		// 배치
 		setLayout(null);
-		js1.setBounds(10,15,600,565); // 글
-		tf.setBounds(10,580,480,30); // 채팅
-		box.setBounds(490,580,120,30); // 색
-		js2.setBounds(610,15,230,250); // 사람
+		js1.setBounds(10,10,600,560); // 글
+		tf.setBounds(10,570,480,30); // 채팅
+		box.setBounds(490,570,120,30); // 색
+		js2.setBounds(610,10,230,250); // 사람
 		p.setBounds(610,270,230,35); // 버튼
 		add(js1);
 		add(tf);add(box);
 		add(js2);
 		add(p);
-		String[] data= {"hong","홍길동","남자"};
-		model.addRow(data);
-		
+		b1.setEnabled(false);
+		b2.setEnabled(false);
 	}
 	public void initStyle()
 	{

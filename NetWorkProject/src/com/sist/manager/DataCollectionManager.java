@@ -39,7 +39,7 @@ public class DataCollectionManager {
         FileOutputStream fos = null;
 
         ObjectOutputStream oos = null;
-
+        
         try {
 
             fos= new FileOutputStream("C:\\java_datas\\travel.txt");
@@ -120,14 +120,20 @@ public class DataCollectionManager {
                             System.out.println(posterUrl);
 
                         }
-
-                        else { // url이 호텔과 게스트하우스인경우
-
-                            posterUrl = poster.get(k).attr("src");
-
-                           
-
+                        else if(url.contains("hotels"))
+                        {
+                        	posterUrl=poster.get(k).attr("src");
+                        	System.out.println(posterUrl);
                         }
+                        else if(url.contains("seoul-stay"))
+                        {
+                        	poster = doc.select("div.article-list-slide li.item img");
+                        	String str = poster.get(k).attr("src");
+                        	str = str.substring(str.indexOf("h"),str.lastIndexOf("M")+1);
+                            posterUrl= str;
+                            System.out.println(posterUrl);
+                        }
+                        
 
 
 
