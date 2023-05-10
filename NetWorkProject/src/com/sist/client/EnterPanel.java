@@ -7,6 +7,6 @@ import javax.swing.JPanel;
 public class EnterPanel extends JPanel {
 	public EnterPanel()
 	{
-		setBackground(Color.red);
+		
 	}
 }

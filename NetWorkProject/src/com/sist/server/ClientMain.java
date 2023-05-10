@@ -148,7 +148,7 @@ public class ClientMain extends JFrame implements ActionListener,Runnable{
 		{
 			try
 			{
-				s=new Socket("localhost",3456);
+				s=new Socket("211.238.142.118",3456);
 				in=new BufferedReader(new InputStreamReader(s.getInputStream()));
 				out=s.getOutputStream();
 			}

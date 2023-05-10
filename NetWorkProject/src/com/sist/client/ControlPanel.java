@@ -11,15 +11,25 @@ public class ControlPanel extends JPanel{
 	LocationPanel lp=new LocationPanel();
 	AcommPanel ap=new AcommPanel();
 	EnterPanel ep=new EnterPanel();
-	RecommendPanel rp=new RecommendPanel();
 	ChatPanel cp=new ChatPanel();
 	FindPanel fp=new FindPanel();
 	CardLayout card=new CardLayout();
 	DetailPanel dp;
+	BoardListPanel bp;
+	BoardInsertPanel ip;
+	BoardDetailPanel bdp;
+	BoardUpdatePanel bup;
+	BoardDeletePanel bdelp;
 	public ControlPanel()
 	{
+		
 		hp=new HomePanel(this);
 		dp=new DetailPanel(this);
+		bp=new BoardListPanel(this);
+		ip=new BoardInsertPanel(this);
+		bdp=new BoardDetailPanel(this);
+		bup=new BoardUpdatePanel(this);
+    	bdelp=new BoardDeletePanel(this);
 		setLayout(card);
 		add("home",hp);
 		add("location",lp);
@@ -28,8 +38,12 @@ public class ControlPanel extends JPanel{
 		add("news",np);
 		add("chat",cp);
 		add("find",fp);
-		add("recomm",rp);
 		add("detail",dp);
+		add("board",bp);
+		add("insert",ip);
+		add("bdp",bdp);
+		add("bup",bup);
+    	add("delete",bdelp);
 	}
 
 	

@@ -17,7 +17,7 @@ import java.awt.event.*;
 public class FindPanel extends JPanel implements ActionListener,FindInterface{
 	JTextField tf;
 	JButton b1;
-	JButton b2,b3,b4,b5,b6,b7,b8;
+	JButton b2,b3,b4,b5,b6,b7;
 	JTable table;
 	DefaultTableModel model;
 	TravelSystem ts=new TravelSystem();
@@ -33,7 +33,7 @@ public class FindPanel extends JPanel implements ActionListener,FindInterface{
 		b5=new JButton("shopping");
 		b6=new JButton("restaurans");
 		b7=new JButton("hotels");
-		b8=new JButton("seoul-stay");
+		
 		
 		//			 이미지
 		String[] col={"","장소명","설명"}; // title
@@ -69,7 +69,6 @@ public class FindPanel extends JPanel implements ActionListener,FindInterface{
 		p.add(b5);
 		p.add(b6);
 		p.add(b7);
-		p.add(b8);
 		p.setBounds(10,55,850,35);
 		
 		js.setBounds(10,100,850,500);
@@ -102,7 +101,6 @@ public class FindPanel extends JPanel implements ActionListener,FindInterface{
 		b5.addActionListener(this);
 		b6.addActionListener(this);
 		b7.addActionListener(this);
-		b8.addActionListener(this);
 		tf.addActionListener(this);
 		
 	}
@@ -132,10 +130,6 @@ public class FindPanel extends JPanel implements ActionListener,FindInterface{
 		else if(e.getSource()==b7)
 		{
 			findPrint(6);
-		}
-		else if(e.getSource()==b8)
-		{
-			findPrint(7);
 		}
 		else if(e.getSource()==b1||e.getSource()==tf)
 		{

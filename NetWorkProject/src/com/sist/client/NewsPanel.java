@@ -2,6 +2,7 @@ package com.sist.client;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import com.sist.manager.NaverNewsManager;
 import com.sist.manager.NewsVO;
@@ -18,6 +19,7 @@ public class NewsPanel extends JPanel implements ActionListener{
 	
 	public NewsPanel()
 	{
+		
 		tf=new JTextField();
 		b=new JButton("검색");
 		for(int i=0;i<cards.length;i++)
@@ -26,13 +28,14 @@ public class NewsPanel extends JPanel implements ActionListener{
 		}
 		pan=new JPanel();
 		pan.setLayout(new GridLayout(5,1,5,1));
+		JScrollPane js=new JScrollPane(pan);
 		setLayout(null);
 		tf.setBounds(10,15,250,30);
 		b.setBounds(265,15,100,30);
-		pan.setBounds(10,55,940,580);
+		js.setBounds(10,55,940,550);
 		add(tf);
 		add(b);
-		add(pan);
+		add(js);
 		
 		tf.addActionListener(this);
 		b.addActionListener(this);

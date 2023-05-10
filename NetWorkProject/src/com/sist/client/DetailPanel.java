@@ -42,9 +42,9 @@ public class DetailPanel extends JPanel implements ActionListener{
 		keyLa.setVisible(false);
 		
 		JPanel p=new JPanel();
-		p.add(b1);
+		//p.add(b1);
 		p.add(b2);
-		p.setBounds(10,515,960,35);
+		p.setBounds(10,550,960,35);
 		
 		add(imgLa);
 		add(keyLa);

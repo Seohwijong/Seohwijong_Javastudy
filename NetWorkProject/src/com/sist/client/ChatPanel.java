@@ -65,11 +65,11 @@ public class ChatPanel extends JPanel implements ChatInterface{
 		
 		// 배치
 		setLayout(null);
-		js1.setBounds(10,10,600,560); // 글
-		tf.setBounds(10,570,480,30); // 채팅
-		box.setBounds(490,570,120,30); // 색
-		js2.setBounds(610,10,230,250); // 사람
-		p.setBounds(610,270,230,35); // 버튼
+		js1.setBounds(10,10,700,560); // 글
+		tf.setBounds(10,570,580,30); // 채팅
+		box.setBounds(590,570,120,30); // 색
+		js2.setBounds(710,10,230,250); // 사람
+		p.setBounds(710,270,230,35); // 버튼
 		add(js1);
 		add(tf);add(box);
 		add(js2);

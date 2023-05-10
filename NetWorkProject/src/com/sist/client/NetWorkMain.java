@@ -1,5 +1,6 @@
 package com.sist.client;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -26,13 +27,69 @@ import com.sist.common.Function;
 import com.sist.common.ImageChange;
 import com.sist.manager.TravelSystem;
 import com.sist.manager.TravelVO;
-
+/*
+ *    프로그램 2개
+ *    1) 로그인 , 채팅 문자열 입력 ... 일반 사용자
+ *    2) 서버에서 전송되는 데이터를 출력
+ *       ---------------------- 쓰레드
+ *       웹에서 필요한 기술
+ *       => 데이터베이스 (오라클 -> MySQL) MyBatis / JPA
+ *       => 데이터베이스 제어 => 자바
+ *          자바
+ *           클래스 개념 / 인터페이스 / 예외처리 / 라이브러리
+ *                      ------ 요구사항 분석 (기능)
+ *           -------- 변수 / 메소드 / 생성자
+ *           java.lang
+ *              Object / String / StringBuffer / Math / Wrapper
+ *           java.util
+ *              StringTokenizer / Date , Calendar
+ *              Collection => ArrayList , HashMap , HashSet
+ *           java.net
+ *              URL , URLEncoder
+ *           java.io : 웹 => 업로드 , 다운로드 (File)
+ *                     => Buffered~
+ *                     FileInputStream / FileOutPutStream
+ *                     FileReader / FileWriter
+ *                     BufferedReader / File
+ *                     
+ *           java.text : SimpleDateFormat
+ *       ---------------------------------------------------------------------
+ *       2차 자바 (Web관련)
+ *           java.sql , javax.sql , javax.nameing
+ *           javax.servlet.*
+ *           
+ *           브라우저 	======= 자바 ======= 오라클
+ *           윈도우	======= 자바 ======= 파일
+ *                          --- 데이터 읽기 / 데이터 전송
+ *           => 1) 오라클 제어
+ *                 SELECT / UPDATE / DELETE / INSERT => DML
+ *                 --------------------------------- 데이터 조작언어
+ *                 CREATE / ALTER / DROP / TRUNCATE / RENAME => DDL
+ *                 --------------------------------- 데이터 저장 / 생성
+ *                 GRANT / REVOKE
+ *                 -------------- DCL (Admin)
+ *                 COMMIT / ROLLBACK
+ *                 ----------------- TCL (일괄처리)
+ *              2) 기타 : VIEW / SEQUENCE / PS-SQL (FUNCTION , PROCEDUR / TRIGGER)
+ *              3) 데이터베이스 모델링 (정규화 , 제약조건)
+ *           => 브라우저에 데이터 출력 : HTML / CSS / JavaScript
+ *           => 자바스크립트 라이브러리 : JQuery / Ajax
+ *           					  -------------- 교재 (동영상)
+ *           ----------------------------------1차 프로젝트
+ *           Spring (Back-End) / VueJS (Front-End)
+ *           ----------------------------------2차 프로젝트
+ *           Spring-Boot / My-SQL / ReactJS / JPA
+ *           ----------------------------------3차 프로젝트
+ *           AWS => 호스팅
+ *           ----------------------------------이력서 첨부 (입사)
+ *           
+ */
 public class NetWorkMain extends JFrame implements ActionListener,Runnable,MouseListener{
 	
 	MenuPanel mp;
 	ControlPanel cp;
 	TopPanel tp;
-	JButton b1,b2,b3,b4,b5,b6,b7;
+	JButton b1,b2,b3,b5,b6,b7;
 	JLabel logo;
 	Login login=new Login();
 	int curpage=1;
@@ -45,11 +102,22 @@ public class NetWorkMain extends JFrame implements ActionListener,Runnable,Mouse
 	int selectRow=-1;
 	SendMessage sm=new SendMessage();
 	RecvMessage rm=new RecvMessage();
+	JLabel bono;
 	public NetWorkMain()
 	{
-		logo=new JLabel();
-		Image img=ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.jpg"), 200, 130);
+		bono=new JLabel();
+		Image imgg=ImageChange.getImage(new ImageIcon("c:\\javaDev\\llooggoo.jpg"), 200,600);
+		bono.setIcon(new ImageIcon(imgg));
+		bono.setBounds(980,150,200,600);
 		
+		
+		
+		
+		
+		
+		
+		logo=new JLabel();
+		Image img=ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.png"), 200, 130);
 		logo.setIcon(new ImageIcon(img));
 		mp=new MenuPanel();
 		cp=new ControlPanel();
@@ -58,41 +126,45 @@ public class NetWorkMain extends JFrame implements ActionListener,Runnable,Mouse
 		setLayout(null); 
 		
 		logo.setBounds(10,15,200,130);
-		mp.setBounds(215,15,955,130);
+		mp.setBounds(215,55,955,50);
 		cp.setBounds(10,150,960,600);
 		tp.setBounds(980,150,200,600);
 		
 		b1=new JButton("홈");
-		b2=new JButton("장소");
-		b3=new JButton("엔터");
-		b4=new JButton("숙박");
 		b5=new JButton("검색");
 		b6=new JButton("뉴스");
 		b7=new JButton("채팅");
+		b2=new JButton("커뮤니티");
+		b3=new JButton("나가기");
+		
 		
 		mp.setLayout(new GridLayout(1,7,5,5));
 		mp.add(b1);
-		mp.add(b2);
-		mp.add(b3);
-		mp.add(b4);
 		mp.add(b5);
 		mp.add(b6);
 		mp.add(b7);
+		mp.add(b2);
+		mp.add(b3);
 		
+		b1.setBackground(new Color(252,128,104));
+		b5.setBackground(new Color(252,128,104));
+		b6.setBackground(new Color(252,128,104));
+		b7.setBackground(new Color(252,128,104));
+		b2.setBackground(new Color(252,128,104));
+		b3.setBackground(new Color(252,128,104));
 		add(mp);
 		add(cp);
-		add(tp);
 		add(logo);
-		
+		add(bono);
+		add(tp);
 		setSize(1200, 800);
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setTitle("서울 여행지 추천 프로그램");
 		
 		b1.addActionListener(this); 
 		b2.addActionListener(this);
 		b3.addActionListener(this);
-		b4.addActionListener(this);
 		b5.addActionListener(this);
 		b6.addActionListener(this);
 		b7.addActionListener(this);
@@ -155,15 +227,15 @@ public class NetWorkMain extends JFrame implements ActionListener,Runnable,Mouse
 		}
 		else if(e.getSource()==b2)
 		{
-			cp.card.show(cp, "location");
+			cp.card.show(cp, "board");
 		}
 		else if(e.getSource()==b3)
 		{
-			cp.card.show(cp, "enter");
-		}
-		else if(e.getSource()==b4)
-		{
-			cp.card.show(cp, "acomm");
+			try
+			{
+				out.write((Function.EXIT+"|"+myId+"\n").getBytes());
+			}
+			catch(Exception ex) {}
 		}
 		else if(e.getSource()==login.b1)
 		{
@@ -341,8 +413,29 @@ public class NetWorkMain extends JFrame implements ActionListener,Runnable,Mouse
 						rm.tf.setText(id);
 						rm.ta.setText(strMsg);
 						rm.setVisible(true);
-						
 					}
+					break;
+					case Function.MYEXIT:
+					{
+						dispose();
+						System.exit(0);
+					}
+					break;
+					case Function.EXIT:
+					{
+						String mid=st.nextToken();
+						for(int i=0;i<cp.cp.model.getRowCount();i++)
+						{
+							String uid=cp.cp.table.getValueAt(i, 0).toString();
+							if(mid.equals(uid))
+							{
+								cp.cp.model.removeRow(i);
+								break;
+							}
+							
+						}
+					}
+					break;
 					
 				}
 			}

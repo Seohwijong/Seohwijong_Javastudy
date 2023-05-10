@@ -41,7 +41,7 @@ public class HomePanel extends JPanel implements HomeInterface,MouseListener{
 		p.add(b1);
 		p.add(pageLa);
 		p.add(b2);
-		p.setBounds(10,515,960,35);
+		p.setBounds(10,550,960,35);
 		add(p);
 	}
 	public void cardPrint(List<TravelVO> list)

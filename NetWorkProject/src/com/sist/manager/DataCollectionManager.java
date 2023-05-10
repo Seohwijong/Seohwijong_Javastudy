@@ -49,7 +49,8 @@ public class DataCollectionManager {
             int c =1;
             int cg=0;
 
-            String [] urls2 = {"attractions","nature","entertainment","shopping","restaurants","hotels","seoul-stay"};
+            String [] urls2 = {"attractions","nature","entertainment","shopping","restaurants","hotels"};
+//            String [] urls2 = {"attractions","nature","entertainment","shopping","restaurants","hotels","seoul-stay"};
 
 
 
@@ -109,7 +110,8 @@ public class DataCollectionManager {
 
                         String posterUrl="";
 
-                        if(!url.contains("hotels") && !url.contains("seoul-stay")){
+                        if(!url.contains("hotels")){
+//                        if(!url.contains("hotels") && !url.contains("seoul-stay")){
 
                             String str = poster.get(k).attr("style");
 
@@ -125,14 +127,14 @@ public class DataCollectionManager {
                         	posterUrl=poster.get(k).attr("src");
                         	System.out.println(posterUrl);
                         }
-                        else if(url.contains("seoul-stay"))
-                        {
-                        	poster = doc.select("div.article-list-slide li.item img");
-                        	String str = poster.get(k).attr("src");
-                        	str = str.substring(str.indexOf("h"),str.lastIndexOf("M")+1);
-                            posterUrl= str;
-                            System.out.println(posterUrl);
-                        }
+//                        else if(url.contains("seoul-stay"))
+//                        {
+//                        	poster = doc.select("div.article-list-slide li.item img");
+//                        	String str = poster.get(k).attr("src");
+//                        	str = str.substring(str.indexOf("h"),str.lastIndexOf("M")+1);
+//                            posterUrl= str;
+//                            System.out.println(posterUrl);
+//                        }
                         
 
 
