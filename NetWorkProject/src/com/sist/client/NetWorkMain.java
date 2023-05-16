@@ -265,7 +265,7 @@ public class NetWorkMain extends JFrame implements ActionListener,Runnable,Mouse
 			
 			try
 			{
-				s=new Socket("211.238.142.118",3456);
+				s=new Socket("",3456);
 				in=new BufferedReader(new InputStreamReader(s.getInputStream()));
 				out=s.getOutputStream();
 				out.write((Function.LOGIN+"|"+id+"|"+name+"|"+sex+"\n").getBytes());
